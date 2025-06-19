@@ -1,5 +1,5 @@
 /*
-	Installed from https://reactbits.dev/tailwind/
+	Text animation with GSAP split text
 */
 
 import { useRef, useEffect } from "react";

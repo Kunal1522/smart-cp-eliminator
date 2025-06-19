@@ -1,10 +1,4 @@
-// frontend/src/utils/dateUtils.js
-
-/**
- * @desc Formats a Date object into a readable string (e.g., "Jan 01, 2023 10:30 AM").
- * @param {Date | string} dateInput - The Date object or date string to format.
- * @returns {string} The formatted date string.
- */
+// Formats a Date object into a readable string (e.g., "Jan 01, 2023 10:30 AM")
 export const formatDateTime = (dateInput) => {
   if (!dateInput) return 'N/A';
   const date = new Date(dateInput);
@@ -21,11 +15,7 @@ export const formatDateTime = (dateInput) => {
   return date.toLocaleString('en-US', options);
 };
 
-/**
- * @desc Formats a Date object into a readable date string (e.g., "Jan 01, 2023").
- * @param {Date | string} dateInput - The Date object or date string to format.
- * @returns {string} The formatted date string.
- */
+// Formats a Date object into a readable date string (e.g., "Jan 01, 2023")
 export const formatDate = (dateInput) => {
   if (!dateInput) return 'N/A';
   const date = new Date(dateInput);

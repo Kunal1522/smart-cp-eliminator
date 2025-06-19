@@ -1,4 +1,3 @@
-// frontend/src/components/RatingGraph.jsx
 import React from 'react';
 import {
   LineChart,
@@ -13,31 +12,28 @@ import {
 } from 'recharts';
 import { formatDate } from '../utils/dateUtils';
 
-// Define Codeforces rating tiers and their associated colors for the RATING GRAPH BACKGROUND
-// These are the bands visible on the Codeforces profile pages.
+// Define Codeforces rating tiers and their associated colors
 const RATING_TIERS_GRAPH = [
-  { rating: 0, name: 'Unrated / Newbie', color: '#B0B0B0' }, // Lighter Gray background for <1200
-  { rating: 1200, name: 'Pupil', color: '#77ff77' },         // Light Green background
-  { rating: 1400, name: 'Specialist', color: '#B7EEF1' },    // Light Cyan background
-  { rating: 1600, name: 'Expert', color: '#aaaaff' },        // Light Blue background
-  { rating: 1900, name: 'Candidate Master', color: '#EEB7EE' }, // Light Purple background
-  { rating: 2100, name: 'Master', color: '#F1E6B7' },       // Light Orange background
-  { rating: 2300, name: 'International Master', color: '#F1D5A3' }, // Slightly darker light orange
-  { rating: 2400, name: 'Grandmaster', color: '#F1B7B7' },   // Light Red background
-  { rating: 2600, name: 'International Grandmaster', color: '#ff3333' }, // Slightly darker light red
-  { rating: 3000, name: 'Legendary Grandmaster', color: '#aa0000' }, // Even darker light red
+  { rating: 0, name: 'Unrated / Newbie', color: '#B0B0B0' },
+  { rating: 1200, name: 'Pupil', color: '#77ff77' },
+  { rating: 1400, name: 'Specialist', color: '#B7EEF1' },
+  { rating: 1600, name: 'Expert', color: '#aaaaff' },
+  { rating: 1900, name: 'Candidate Master', color: '#EEB7EE' },
+  { rating: 2100, name: 'Master', color: '#F1E6B7' },
+  { rating: 2300, name: 'International Master', color: '#F1D5A3' },
+  { rating: 2400, name: 'Grandmaster', color: '#F1B7B7' },
+  { rating: 2600, name: 'International Grandmaster', color: '#ff3333' },
+  { rating: 3000, name: 'Legendary Grandmaster', color: '#aa0000' },
 ];
 
-// Helper function to get color for a given rating (for line dots, etc.)
-// This uses a slightly different set of colors for the actual line/dot
 const getRatingColorForLine = (rating) => {
-  if (rating === null || rating === undefined) return '#808080'; // Gray
-  if (rating < 1200) return '#808080'; // Newbie/Unrated (Gray)
-  if (rating < 1400) return '#008000'; // Pupil (Green)
-  if (rating < 1600) return '#03A89E'; // Specialist (Cyan)
-  if (rating < 1900) return '#0000FF'; // Expert (Blue)
-  if (rating < 2100) return '#AA00AA'; // Candidate Master (Purple)
-  if (rating < 2300) return '#FF8C00'; // Master (Orange)
+  if (rating === null || rating === undefined) return '#808080';
+  if (rating < 1200) return '#808080';
+  if (rating < 1400) return '#008000';
+  if (rating < 1600) return '#03A89E';
+  if (rating < 1900) return '#0000FF';
+  if (rating < 2100) return '#AA00AA';
+  if (rating < 2300) return '#FF8C00';
   if (rating < 2400) return '#FF8C00'; // International Master (Orange)
   if (rating < 2600) return '#FF0000'; // Grandmaster (Red)
   if (rating < 3000) return '#FF0000'; // International Grandmaster (Red)

@@ -1,16 +1,5 @@
-// frontend/src/components/StudentForm.jsx
 import React, { useState, useEffect } from 'react';
 import ErrorMessage from './ErrorMessage';
-
-/**
- * @desc Form component for adding or editing student details.
- * @param {Object} props - Component props.
- * @param {Object} [props.initialData] - Optional initial data for editing a student.
- * @param {Function} props.onSubmit - Callback function triggered on form submission (receives student data).
- * @param {string} props.submitText - Text for the submit button (e.g., "Add Student", "Update Student").
- * @param {boolean} [props.isLoading=false] - Indicates if the form submission is in progress.
- * @param {string|null} [props.error=null] - Error message to display.
- */
 function StudentForm({ initialData = {}, onSubmit, submitText, isLoading = false, error = null }) {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,9 +9,8 @@ function StudentForm({ initialData = {}, onSubmit, submitText, isLoading = false
     autoEmailEnabled: true, // Default to true for new students
   });
   const [formError, setFormError] = useState(null); // Local error for validation
-
   useEffect(() => {
-    // Populate form if initialData is provided (for edit mode)
+    // Populate form for edit mode
     if (initialData && Object.keys(initialData).length > 0) {
       setFormData({
         name: initialData.name || '',

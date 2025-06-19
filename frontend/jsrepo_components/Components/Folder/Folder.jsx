@@ -1,7 +1,6 @@
 /*
-  Modified from https://reactbits.dev/tailwind/ to control content scaling.
-  The 'size' prop now directly scales dimensions (width, height, offsets)
-  instead of using a CSS 'transform: scale()', which prevents internal text from growing.
+  Modified to control content scaling.
+  The 'size' prop directly scales dimensions (width, height, offsets)
 */
 
 import { useState } from "react";
@@ -27,7 +26,7 @@ const darkenColor = (hex, percent) => {
 
 const Folder = ({
   color = "#5227FF",
-  size = 1, // This 'size' will now act as a multiplier for base dimensions
+  size = 1,
   open: initialOpen = false, // Renamed to avoid conflict with internal state
   items = [],
   className = "",

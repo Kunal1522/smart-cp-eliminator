@@ -1,14 +1,13 @@
-        // frontend/src/services/api.js
-        import axios from 'axios';
+import axios from 'axios';
 
-        // Create an Axios instance
-        const api = axios.create({
-          baseURL: 'http://localhost:5000/api', // Base URL for your backend API
-          timeout: 30000, // Request timeout in milliseconds
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+// Create an Axios instance
+const api = axios.create({
+  baseURL: 'http://localhost:5000/api',
+  timeout: 30000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
         // Request interceptor to attach JWT token to outgoing requests
         api.interceptors.request.use(

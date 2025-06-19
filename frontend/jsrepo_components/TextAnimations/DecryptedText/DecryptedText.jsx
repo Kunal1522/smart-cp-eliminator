@@ -1,5 +1,5 @@
 /*
-	Installed from https://reactbits.dev/tailwind/
+	Text animation component
 */
 
 import { useEffect, useState, useRef } from "react";

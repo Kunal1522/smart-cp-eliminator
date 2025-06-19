@@ -1,4 +1,3 @@
-// backend/src/models/CodeforcesContest.js
 const mongoose = require('mongoose');
 const CodeforcesContestSchema = new mongoose.Schema({
   studentId: {
@@ -14,7 +13,7 @@ const CodeforcesContestSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  contestTime: { // Represents ratingUpdateTimeSeconds from CF API
+  contestTime: {
     type: Date,
     required: true,
   },

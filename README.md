@@ -71,8 +71,13 @@ This project demonstrates API integration, background task handling, and data-dr
 
 ---
 
+
+
 ## 3. Architecture
 
+This project uses a **decoupled MERN architecture** with automated tasks using cron jobs for background data synchronization.
+
+```plaintext
 +------------------+         +-----------------------+         +-----------------+
 |   Frontend       |  <--->  |    Backend Server     |  <--->  |     MongoDB     |
 |   (React.js)     |  API    |  (Node.js / Express)  |  ORM    |   (Database)    |
@@ -86,6 +91,8 @@ This project demonstrates API integration, background task handling, and data-dr
 |   User Browser    |      |   Codeforces API    |            |     Cron Job       |
 |    (Client)       |      | (External Data)     |            |    (node-cron)     |
 +-------------------+      +---------------------+            +--------------------+
+                                                              | (Automated Tasks)  |
+                                                              +--------------------+
 
 
 

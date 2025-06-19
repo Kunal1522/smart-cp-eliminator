@@ -1,10 +1,7 @@
-// backend/src/models/AppSettings.js
 const mongoose = require('mongoose');
 
 const AppSettingsSchema = new mongoose.Schema({
-  // This schema is designed to store global application settings in a single document.
-  // We'll use a fixed _id or ensure only one document exists.
-  singletonId: { // A fixed identifier to ensure only one document for settings
+  singletonId: {
     type: String,
     required: true,
     default: 'app_settings',
@@ -12,12 +9,12 @@ const AppSettingsSchema = new mongoose.Schema({
   },
   cronSchedule: {
     type: String,
-    default: '0 2 * * *', // Default to 2 AM daily (UTC timezone implied by node-cron)
+    default: '0 2 * * *',
     required: true,
   },
   cronFrequencyUnit: {
     type: String,
-    enum: ['minute', 'hour', 'day'], // For UI display purposes
+    enum: ['minute', 'hour', 'day'],
     default: 'day',
   },
   cronFrequencyValue: {

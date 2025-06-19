@@ -1,5 +1,4 @@
 /*
- * Installed from https://reactbits.dev/tailwind/
  * Modified to accept 'data' and 'renderItem' props dynamically.
  */
 
@@ -14,7 +13,7 @@ const AnimatedItem = ({
   onClick,
 }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { amount: 0.5, triggerOnce: false }); // Use triggerOnce: false to allow re-animation on scroll
+  const inView = useInView(ref, { amount: 0.5, triggerOnce: false });
 
   return (
     <motion.div
@@ -22,21 +21,19 @@ const AnimatedItem = ({
       data-index={index}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
-      // Re-animate based on inView status
       initial={{ scale: 0.7, opacity: 0 }}
       animate={inView ? { scale: 1, opacity: 1 } : { scale: 0.7, opacity: 0 }}
       transition={{ duration: 0.2, delay }}
-      className="mb-4 cursor-pointer" // Keep base styling
+      className="mb-4 cursor-pointer"
     >
       {children}
     </motion.div>
   );
 };
 
-// Modified AnimatedList component to accept 'data' and 'renderItem' props
 const AnimatedList = ({
-  data = [], // Changed from 'items' to 'data', and default to empty array
-  renderItem, // New prop: a function to render each item
+  data = [],
+  renderItem,
   onItemSelect,
   showGradients = true,
   enableArrowNavigation = true,

@@ -1,31 +1,23 @@
-// backend/src/controllers/authController.js
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User'); // Path to your User model
-require('dotenv').config(); // Load environment variables
+const User = require('../models/User');
+require('dotenv').config();
 
 /**
- * @desc Generates a JWT token for a user.
- * @param {string} id - The user's MongoDB ObjectId.
- * @returns {string} The signed JWT token.
+ * Generates a JWT token for a user.
  */
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
-    expiresIn: '1d', // Token expires in 1 day
+    expiresIn: '1d',
   });
 };
 
 /**
- * @desc Register a new user.
- * @route POST /api/auth/register
- * @access Public
- * @param {Object} req - Express request object.
- * @param {Object} res - Express response object.
+ * Register a new user.
  */
 exports.registerUser = async (req, res) => {
   const { username, email, password } = req.body;
 
-  // Basic validation for input fields
   if (!username || !email || !password) {
     return res.status(400).json({ message: 'Please enter all fields' });
   }
