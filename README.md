@@ -69,31 +69,6 @@ This project demonstrates API integration, background task handling, and data-dr
 * **User Authentication & Authorization:** Secure login system with administrative roles.
 * **Feedback System:** A channel for users to submit comments and report issues.
 
----
-
-
-
-## 3. Architecture
-
-This project uses a **decoupled MERN architecture** with automated tasks using cron jobs for background data synchronization.
-
-```plaintext
-+------------------+         +-----------------------+         +-----------------+
-|   Frontend       |  <--->  |    Backend Server     |  <--->  |     MongoDB     |
-|   (React.js)     |  API    |  (Node.js / Express)  |  ORM    |   (Database)    |
-| (Client-side SPA)|         |  (API Gateway, Logic) |         | (Persistent Data)|
-+------------------+         +-----------------------+         +-----------------+
-        ^                             ^                                   ^
-        |                             |                                   |
-        |    (Auth via JWT)           |       (HTTP Requests)            | (Data Storage)
-        |                             |                                   |
-+-------|-----------+      +----------v----------+            +----------|----------+
-|   User Browser    |      |   Codeforces API    |            |     Cron Job       |
-|    (Client)       |      | (External Data)     |            |    (node-cron)     |
-+-------------------+      +---------------------+            +--------------------+
-                                                              | (Automated Tasks)  |
-                                                              +--------------------+
-
 
 
 ### Component Responsibilities
