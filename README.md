@@ -1,4 +1,6 @@
-# TLE Eliminators - Student Progress & Analytics System
+
+## 🚀 Demo Video 👉 [Watch Here](https://drive.google.com/file/d/1Go0V4Ahw7iHy9GtSKHNAtL1bXOzp34g4/view?usp=sharing)
+#   Student Progress & Analytics System
 
 [![GitHub Workflow Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=for-the-badge)](https://github.com/Kunal1522/Smart-Cp--TLE/commits/main)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
@@ -36,9 +38,23 @@
 
 ## 1. Overview
 
-TLE Eliminators is a comprehensive, full-stack web application built on the MERN stack (MongoDB, Express.js, React, Node.js). It is designed to automate the tracking, analysis, and visualization of student progress in competitive programming, primarily focusing on Codeforces performance.
+This project is a full-stack MERN web application developed as part of an internship assignment. It focuses on automating the tracking, analysis, and visualization of Codeforces activity for competitive programmers.
 
-The platform streamlines the process of monitoring student activity, understanding rating trends, and providing timely motivational feedback. By centralizing Codeforces data and offering intuitive analytics, TLE Eliminators empowers educators and students to optimize their competitive programming journey.
+It is designed to:
+
+Automate fetching Codeforces data such as user profiles, ratings, contests, and submissions.
+
+Provide visual analytics on competitive programming progress, including rating changes and problem-solving trends.
+
+Identify inactive Codeforces users and send automated reminder emails to help encourage consistent participation.
+
+Export competitive programming data to CSV files for further analysis.
+
+Ensure secure access with authentication & authorization systems.
+
+Use a cron job for daily data synchronization and background task automation.
+
+This project demonstrates API integration, background task handling, and data-driven visualization for a real-world use case in competitive programming ecosystems.
 
 ---
 
@@ -57,22 +73,20 @@ The platform streamlines the process of monitoring student activity, understandi
 
 ## 3. Architecture
 
-TLE Eliminators utilizes a modern, decoupled MERN stack architecture, supported by a scheduled cron job for background data processing.
-+------------------+          +------------------------+          +-----------------+
-|                  |          |                        |          |                 |
-|   Frontend       |          |      Backend Server    |          |    MongoDB      |
-|   (React.js)     |<-------->|    (Node.js/Express)   |<-------->|   (Database)    |
-| (Client-side SPA)| (REST API)|  (API Gateway, Logic)  | (Mongoose ORM) | (Persistent Data)|
-+------------------+          |                        |          |                 |
-^                    +------------^-----------+          +--------^--------+
-|                                 |                                 |
-| (Auth via JWT)                  | (HTTP Requests)                 | (Data Storage)
-|                                 |                                 |
-+--------|----------+          +-----------v-----------+          +--------|--------+
-|   User Browser    |          |   Codeforces API      |          |     Cron Job    |
-|   (Client)        |          | (External Data Source)|          | (Node-Cron)     |
-+-------------------+          +-----------------------+          | (Automated Tasks)|
-+-----------------+
++------------------+         +-----------------------+         +-----------------+
+|   Frontend       |  <--->  |    Backend Server     |  <--->  |     MongoDB     |
+|   (React.js)     |  API    |  (Node.js / Express)  |  ORM    |   (Database)    |
+| (Client-side SPA)|         |  (API Gateway, Logic) |         | (Persistent Data)|
++------------------+         +-----------------------+         +-----------------+
+        ^                             ^                                   ^
+        |                             |                                   |
+        |    (Auth via JWT)           |       (HTTP Requests)            | (Data Storage)
+        |                             |                                   |
++-------|-----------+      +----------v----------+            +----------|----------+
+|   User Browser    |      |   Codeforces API    |            |     Cron Job       |
+|    (Client)       |      | (External Data)     |            |    (node-cron)     |
++-------------------+      +---------------------+            +--------------------+
+
 
 
 ### Component Responsibilities
