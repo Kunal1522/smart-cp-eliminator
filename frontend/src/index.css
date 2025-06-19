@@ -1,0 +1,45 @@
+    /* frontend/src/index.css */
+    @import "tailwindcss";
+    /* Custom styles for light/dark mode (as before) */
+    :root {
+      /* Light mode defaults */
+      --color-bg-primary: #f3f4f6;
+      --color-bg-secondary: #ffffff;
+      --color-text-primary: #1f2937;
+      --color-text-secondary: #4b5563;
+      --color-border: #d1d5db;
+      --color-button-primary-bg: #3b82f6;
+      --color-button-primary-text: #ffffff;
+      --color-button-secondary-bg: #6b7280;
+      --color-button-secondary-text: #ffffff;
+      --color-highlight: #bfdbfe; /* blue-200 */
+      --color-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    .dark-mode {
+      --color-bg-primary: #1a202c; /* gray-900 */
+      --color-bg-secondary: #2d3748; /* gray-800 */
+      --color-text-primary: #e2e8f0; /* gray-200 */
+      --color-text-secondary: #a0aec0; /* gray-400 */
+      --color-border: #4a5568; /* gray-600 */
+      --color-button-primary-bg: #6366f1; /* indigo-500 */
+      --color-button-primary-text: #ffffff;
+      --color-button-secondary-bg: #4a5568; /* gray-600 */
+      --color-button-secondary-text: #e2e8f0;
+      --color-highlight: #4338ca; /* indigo-700 */
+      --color-shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    body {
+      background-color: var(--color-bg-primary);
+      color: var(--color-text-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Specific style for active NavLink */
+    .active-link {
+      font-weight: bold;
+      color: #fff;
+      border-bottom: 2px solid #fff;
+    }
+    
